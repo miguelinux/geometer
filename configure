@@ -1,0 +1,23 @@
+#!/bin/bash
+echo
+echo         Menu
+echo
+echo  1. Run Qmake to generate Makefile
+echo  2. Run Qmake to include new files
+echo  3. Delete temporal/backup files
+echo
+echo  Press any key to exit.
+echo
+read OPTION
+case "$OPTION" in
+  '1')
+	qmake -o Makefile projekt/main.pro 
+  ;;
+  '2')
+	qmake -project -o projekt/sources.pri
+  ;;
+  '3')
+	rm -f src/*~ tmp/* projekt/*~ *~ 
+  ;;
+esac
+
